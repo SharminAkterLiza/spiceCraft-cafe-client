@@ -25,22 +25,23 @@ const NavBar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
+      <li><a>Home</a></li>
       <li tabIndex={0}>
         <details>
-          <summary>Parent</summary>
+          <summary>Menu</summary>
           <ul className="p-2">
             <li><a>Submenu 1</a></li>
             <li><a>Submenu 2</a></li>
           </ul>
         </details>
       </li>
-      <li><a>Item 3</a></li>
+      <li><a>About</a></li>
     </ul>
     
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  
+  <div className="navbar-end ">
+    <a href="https://xztwka5ygg7mzydicqkjbg.on.drv.tw/SpiceCraftCafe%26ElixirBar/?fbclid=IwAR3unLINrKQJdx4X1HEBdkQCsBQSOoYxvjtczzCKVwaRJagmPy7QL9tyNgE" className="btn">Login</a>
   </div>
 </div>
     );
