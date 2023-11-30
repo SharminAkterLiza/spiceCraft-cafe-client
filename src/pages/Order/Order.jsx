@@ -6,22 +6,27 @@ import './Order.css';
 import { useState } from 'react';
 import useMenu from '../../hooks/useMenu';
 import OrderTab from './OrderTab/OrderTab';
+import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 // import CardFood from '../../components/SectionTitle/cardFood/cardFood';
 
 const Order = () => {
-    const [tabIndex,setTabIndex] = useState(0);
+  const categories = ['burger','momos','drinks','desert']
+  const {category} = useParams();
+    const initialIndex = categories.indexOf(category);
+    const [tabIndex,setTabIndex] = useState(initialIndex);
     const [menu] = useMenu();
 
     const burger = menu.filter(item => item.category === 'burger');
     const momos = menu.filter(item => item.category === 'momos');
-    // const offered = menu.filter(item => item.category === 'offered');
-    // const soup = menu.filter(item => item.category === 'soup');
-    // const pizza = menu.filter(item => item.category === 'pizza');
     const drinks = menu.filter(item => item.category === 'drinks');
     const dessert = menu.filter(item => item.category === 'dessert');
 
     return (
         <div >
+             <Helmet>
+        <title>SpiceCraft | Order</title>
+      </Helmet>
             {/* <Cover img={orderCI} title="Order Food " >
 </Cover> */}
 <div className="orderC  pt-8 ">

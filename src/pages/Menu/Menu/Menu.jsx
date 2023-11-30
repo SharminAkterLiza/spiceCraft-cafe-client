@@ -30,20 +30,14 @@ const drinks = menu.filter(item => item.category === 'drinks');
 <SectionTitle subHeading="Don't Miss " heading="Delicious Items"></SectionTitle>
 {/* offered */}
             <MenuCategory items={offered}></MenuCategory>
-            <MenuCategory 
-            items={burger}
-             title="Burger" 
-             img={burgerImg}
+            <MenuCategory items={burger} title="burger" img={burgerImg}
+
              ></MenuCategory>
-            <MenuCategory 
-            items={momos}
-             title="MOMOS" 
-             img={momosImg}
+            <MenuCategory items={momos} title="momos" img={momosImg}
+
              ></MenuCategory>
-            <MenuCategory 
-            items={drinks}
-             title="drinks" 
-             img={drinksImg}
+            <MenuCategory  items={drinks}  title="drinks"  img={drinksImg}
+            
              ></MenuCategory>
         </div>
     );
