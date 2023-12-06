@@ -40,12 +40,13 @@ const NavBar = () => {
       </li> */}
       <li> <Link to="/order/momos">Order</Link> </li>
       <li><a>About</a></li>
+      <li> <Link to="/login">Login</Link> </li>
+
     </ul>
     
   </div>
   
   <div className="navbar-end ">
-    <a href="https://xztwka5ygg7mzydicqkjbg.on.drv.tw/SpiceCraftCafe%26ElixirBar/?fbclid=IwAR3unLINrKQJdx4X1HEBdkQCsBQSOoYxvjtczzCKVwaRJagmPy7QL9tyNgE" className="btn">Login</a>
   </div>
 </div>
     );
