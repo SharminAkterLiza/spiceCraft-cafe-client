@@ -1,7 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
-
+const {user,logOut} = useContext(AuthContext);
+const handleLogOut = () =>{
+logOut()
+.then(() => {})
+.catch(error =>console.log(error));
+}
     return (
 <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl mx-auto bg-black text-white">
   <div className="navbar-start">
@@ -11,15 +18,8 @@ const NavBar = () => {
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li></li>
-        {/* <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li> */}
-        
-        <li><a>Item 3</a></li>
+      
+        {/* <li><a>Item 3</a></li> */}
       </ul>
       
     </div>
@@ -29,21 +29,21 @@ const NavBar = () => {
     <ul className="menu menu-horizontal px-1">
       <li><Link to="/">Home</Link></li>
       <li><Link to="/menu">Our Menu</Link></li>
-      {/* <li tabIndex={0}>
-        <details>
-          <summary>Menu</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li> */}
+      
       <li> <Link to="/order/momos">Order</Link> </li>
       <li><a>About</a></li>
-      <li> <Link to="/login">Login</Link> </li>
+      <li> <Link to="/secret">Secret</Link> </li>
+     
 
     </ul>
-    
+    {
+      user ? 
+      <>
+      <span>{user?.displayName}</span>
+      <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+      </> : <>  <Link to="/login">Login</Link> </>
+      
+    }
   </div>
   
   <div className="navbar-end ">
