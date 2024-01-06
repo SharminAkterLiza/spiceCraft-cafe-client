@@ -38,7 +38,7 @@ logOut()
       
       <li> <Link to="/order/momos">Order</Link> </li>
       <li><a>About</a></li>
-      <li> <Link to="/secret">Secret</Link> </li>
+      <li> <Link to="/secret">Private</Link> </li>
      <li>
       <Link to="/dashboard/mycart">
       <button className="btn">

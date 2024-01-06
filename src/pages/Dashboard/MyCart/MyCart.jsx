@@ -46,7 +46,7 @@ const MyCart = () => {
            <div className="uppercase font-semibold h-[60px] items-center flex justify-evenly mt-40">
            <h3 className="text-3xl">Total Items: {cart.length}</h3>
            <h3 className="text-3xl">Total price: <span className="text-orange-600">{total} </span> TK</h3>
-<button className="btn bg-orange-800 btn-sm">Pay</button>
+<button className="btn bg-orange-500 btn-sm">Pay</button>
            </div>
 
            <div className="overflow-x-auto">
