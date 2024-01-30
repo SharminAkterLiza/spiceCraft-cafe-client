@@ -31,7 +31,7 @@ const navigate = useNavigate();
 
 const saveUser = {name:data.name, email:data.email}
 
-           fetch('http://localhost:5000/users', {
+           fetch('https://spicecraft-cafe-server.onrender.com/users', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'
@@ -71,16 +71,16 @@ const saveUser = {name:data.name, email:data.email}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold text-center">Please Sign Up!</h1>
+            <h1 className="ml-4 text-5xl text-blue-800 font-bold text-center">Please Sign Up!</h1>
 
           </div>
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+          <div className="card  ml-0 w-[600px] border border-purple-700 m-20 max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
               <div className="form-control">
-                <label className="label">
+                <label className="label -mt-4">
                   <span className="label-text">Name</span>
                 </label>
-                <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" required />
+                <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered w-80 " required />
                 {errors.name && <span>Name is required</span>}
 
               </div>
@@ -88,17 +88,17 @@ const saveUser = {name:data.name, email:data.email}
                 <label className="label">
                   <span className="label-text">Photo URL</span>
                 </label>
-                <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" required />
+                <input type="text" {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered w-80" required />
                 {errors.photoURL && <span>Photo URL is required</span>}
 
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text"></span>
+                  <span className="label-text">Email</span>
                 </label>
                 <input type="email" {...register("email", {
                   required: true
-                })} name="email" placeholder="email" className="input input-bordered" required />
+                })} name="email" placeholder="email" className="input input-bordered w-80" required />
               </div>
               <div className="form-control">
                 <label className="label">
@@ -108,7 +108,7 @@ const saveUser = {name:data.name, email:data.email}
                   minLength: 8,
                   maxLength: 20,
                   pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}/
-                })} placeholder="password" className="input input-bordered" required />
+                })} placeholder="password" className="input input-bordered w-80" required />
                 {/* {errors.password && <span className="text-red-700">Password should must be at least 6 to 20 characters.</span>} */}
 
                 {errors.password?.type === 'minLength' && <p
@@ -126,11 +126,11 @@ const saveUser = {name:data.name, email:data.email}
                 </label>
               </div>
               <div className="form-control mt-6">
-                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                <input className="btn btn-primary w-80 " type="submit" value="Sign Up" />
                 {/* <button >Sign Up</button> */}
               </div>
             </form>
-            <p><small>Already Have an Account?<Link to="/login">Please Login</Link>  </small></p>
+            <p className=" -mt-20 ml-8"><small>Already Have an Account?<Link className="text-blue-600" to="/login">Please Login</Link>  </small></p>
 <SocialLogin></SocialLogin>
           </div>
         </div>

@@ -17,7 +17,7 @@ const CardFood = ({ item }) => {
     if (user && user.email) {
       const cartItem = { menuItemId: _id, name, image, price, email: user.email }
 
-      fetch('http://localhost:5000/carts', {
+      fetch('https://spice-craft-cafe-server.vercel.app/carts', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -62,7 +62,7 @@ const CardFood = ({ item }) => {
         <p>{recipe}</p>
         <div className="card-actions  justify-end mr-2">
           {/* <button className="bg-rose-900 h-[35px] bold w-[120px]  text-white rounded-md ">Add to Cart</button> */}
-          <button onClick={() => handleAddToCart(item)} className="btn btn-outline font-bold bg-slate-100 text-black border-0 border-rose-900 border-b-4 mt-4 ml-80">Add to Cart</button>
+          <button onClick={() => handleAddToCart(item)} className="btn btn-outline font-bold bg-slate-100 text-black border-0 border-rose-900 border-b-4 mt-4 ">Add to Cart</button>
         </div>
       </div>
     </div>

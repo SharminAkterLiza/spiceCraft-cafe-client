@@ -4,9 +4,11 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 import { AuthContext } from "../../../providers/AuthProvider";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
 const {user,logOut} = useContext(AuthContext);
+const [isAdmin] = useAdmin();
 const [cart] = useCart();
 const handleLogOut = () =>{
 logOut()
@@ -16,7 +18,7 @@ logOut()
 
 
     return (
-<div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl mx-auto bg-black text-white">
+<div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl mx-auto bg-black text-white mb-5">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -29,16 +31,21 @@ logOut()
       </ul>
       
     </div>
-    <a className="btn btn-ghost text-xl">SpiceCraft Cafe & Elixir Bar</a>
+    <a className="btn btn-ghost text-xl mr-8">SpiceCraft Cafe & Elixir Bar</a>
   </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><Link to="/">Home</Link></li>
+  <div className="navbar-center hidden lg:flex ml-5">
+    <ul className="menu menu-horizontal px-1 ml-40 mt-6 ">
+      <li  ><Link to="/">Home</Link></li>
       <li><Link to="/menu">Our Menu</Link></li>
       
       <li> <Link to="/order/momos">Order</Link> </li>
-      <li><a>About</a></li>
-      <li> <Link to="/secret">Private</Link> </li>
+      <li><Link to="/about">About</Link></li>
+{
+  isAdmin ? <li> <Link to="/dashboard/adminhome" >Dashboard</Link> </li>
+  : <li> <Link to="/dashboard/userhome" >Dashboard</Link> </li>
+}
+
+      <li> </li>
      <li>
       <Link to="/dashboard/mycart">
       <button className="btn">
@@ -54,12 +61,16 @@ logOut()
       user ? 
       <>
       {/* <span>{user?.displayName}</span> */}
-      <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
-      </> : <>  <Link to="/login">Login</Link> </>
+      <button onClick={handleLogOut} className="btn btn-ghost mt-6 mr-10">LogOut</button>
+      </> : <>  <Link className="mt-6 mr-10" to="/login">Login</Link> </>
       
     }
   </div>
+  {/* <button className="btn">
   
+  <div className="badge badge-secondary">+{cart?.length || 0 }</div>
+  <FaShoppingCart></FaShoppingCart>
+</button> */}
   <div className="navbar-end ">
   </div>
 </div>

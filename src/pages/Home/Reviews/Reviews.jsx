@@ -10,7 +10,7 @@ import { Rating } from "@smastrom/react-rating";
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 useEffect(() => {
-    fetch('http://localhost:5000/reviews')
+    fetch('https://spicecraft-cafe-server.onrender.com/reviews')
     .then(res => res.json())
     .then(data => setReviews(data))
 },[])

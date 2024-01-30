@@ -45,23 +45,27 @@ const {signIn} = useContext(AuthContext);
   }
 
   return (
-    <div>
+    <div >
       <Helmet>
         <title>SpiceCraft | Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      {/* ..hero min-h-screen bg-base-200 */}
+      <div >
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center md:w-1/2 lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-          </div>
-          <div className="card lg:w-1/2 max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleLogin} className="card-body">
+           {/* <div className="text-center md:w-full lg:text-left ml-20  "> */}
+            <h1 className="text-5xl font-bold text-blue-600 ">Login now!</h1>
+           
+          {/* </div>  */}
+  
+          {/* ..lg:w-[500px] bg-base-100*/}
+          <div className= " card  max-w-sm shadow-2xl     ">
+          
+            <form onSubmit={handleLogin} className="card-body w-80 mb-0 ">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                <input type="email" name="email" placeholder="email" className="input input-bordered " required />
               </div>
               <div className="form-control">
                 <label className="label">
@@ -79,12 +83,12 @@ const {signIn} = useContext(AuthContext);
                 </label>
                 <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="Please write the above captcha text." className="input input-bordered" required />
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-2 ">
                 <input disabled={disabled} className="btn btn-primary" type="submit" value="Login"/>
               
               </div>
             </form>
-            <p><small>New here? <Link to="/signup">Create an account</Link>  </small></p>
+            <p className=''><small className='ml-6'>New here? <Link className='text-blue-600' to="/signup">Create an account</Link>  </small></p>
          <SocialLogin></SocialLogin>
           </div>
         </div>
